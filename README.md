@@ -135,6 +135,7 @@ ones:
 
 - `icon` converts a job status into an icon eg. `{{icon jobStatus}}`
 - `json` dumps the value as a JSON string eg. `{{json payload.commits}}`
+- `parse` parses a strigified JSON to an object eg. `{{#each (parse env.data)}}{{this.id}}{{/each}}`
 - `truncate` cuts the string at the limit eg. `{{truncate sha 8}}`
 - `default` allows a alternative or default value eg. `{{default headRef "master"}}`
 - `pluralize` outputs different text based on item count eg. `{{pluralize requested_reviewers "reviewer" "reviewers"}}` (if only singular form is given plural is derived by adding an "s")

@@ -9,6 +9,7 @@ const data = {
     c: 123,
     d: ['x', 'y', 'z']
   },
+  stringified: '{"foo":"bar"}',
   text: 'this is a long line of text',
   uuid: 'CFE20509-E7CF-4401-9733-7615EF3E8A25',
   want: 0,
@@ -38,6 +39,12 @@ test('json stringify', () => {
   const template = Handlebars.compile('{{{json obj}}}')
   const text = template(data)
   expect(text).toStrictEqual('{"a":"b","c":123,"d":["x","y","z"]}')
+})
+
+test('json parse', () => {
+  const template = Handlebars.compile('{{#with (parse stringified)}}{{this.foo}}{{/with}}')
+  const text = template(data)
+  expect(text).toStrictEqual('bar')
 })
 
 test('truncate uuid', () => {

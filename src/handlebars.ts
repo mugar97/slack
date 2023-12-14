@@ -3,6 +3,8 @@ import Handlebars from 'handlebars'
 // utilities
 Handlebars.registerHelper('json', value => new Handlebars.SafeString(JSON.stringify(value)))
 
+Handlebars.registerHelper('parse', value => JSON.parse(value))
+
 Handlebars.registerHelper('truncate', (text, size) => text.substring(0, size))
 
 Handlebars.registerHelper('default', (want, fallback) => (want || want === 0 || want === false ? want : fallback))
